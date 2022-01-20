@@ -55,7 +55,8 @@ generate the test material for the students, this should not appear.
 
 We provide `#prama` stuff to instrument your code for that purpose.
 
-```#pragma tpinf_open_answer
+```
+#pragma tpinf_open_answer
 The code here you want to add to the students...
 ... i.e, the answer of the question
 #pragma tpinf_close_answer
@@ -64,7 +65,8 @@ The code here you want to add to the students...
 You may also want to define code sections that appear in the test, but
 that you do not want to include in your code when you test it.
 
-```#pragma tpinf_open_only_in_subject
+```
+#pragma tpinf_open_only_in_subject
 The code here you want to add to the students...
 ... i.e, the answer of the question
 #pragma tpinf_close_only_in_subject
