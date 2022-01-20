@@ -35,15 +35,15 @@ right".
 For example, question 3 in part 2 consists in compiling some
 question3-part2.cpp file. Naming is important, and ids of questions
 and part (3 and 2 here) must be a single char. Let us denote by
-question<Q>-part<P>.cpp this naming pattern (<Q> and <P> stands for a
+question$Q$-part$P$.cpp this naming pattern ($Q$ and $P$ stands for a
 single char, use letters A, B, C if you have more than 10
 possibilities).
 
 For a question to be compiled correctly, the student my need to edit
 related files. In our approach, and this is what parts are, for a
-given <P>, all questions question<Q>-part<P>.cpp are related to a
-part<P>.hpp and an eventual part<P>.cpp file. The student fill these
-one or two files as they make the question<Q>-part<P>.cpp work.
+given $P$, all questions question$Q$-part$P$.cpp are related to a
+part$P$.hpp and an eventual part$P$.cpp file. The student fill these
+one or two files as they make the question$Q$-part$P$.cpp work.
 
 ### Instrumentation
 
