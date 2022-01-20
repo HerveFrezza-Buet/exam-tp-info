@@ -1,0 +1,78 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2cm]{geometry}
+\usepackage[colorlinks=true, linkcolor=blue, anchorcolor=blue,
+citecolor=blue, filecolor=blue, menucolor=blue,
+urlcolor=blue]{hyperref}
+
+\setlength{\parskip}{3mm}
+\setlength{\parindent}{0mm}
+
+\begin{document}
+\centerline{\Large \sc Instructions for the test}
+\vspace{5mm}
+\hrule
+\vspace{5mm}
+\tableofcontents
+
+\section{Getting started}
+
+We consider in the followwing that you have opened a terminal, and that you are placed in the directory where the exam materials lies.
+
+In that terminal, typing only
+\begin{verbatim}make
+\end{verbatim}
+helps you. It displays help. Read the forewords displayed by this command.
+
+\section{How to pass the test}
+
+The exam is organized into parts. In each part, there are several questions, that have to be considered in order.
+
+For part~1 (the same stands for part 2, 3, ...) you are given the following {\tt C++} files. {\bf Just read the following}, you will have to really do something at section~\ref{sec:starting}.
+\begin{itemize}
+  \item {\tt part1.hpp}: This is where you will have to write code when you will be asked to do so.
+  \item {\tt part1.cpp}: May not be present. If it exists, you will be asked to write code in it as well.
+  \item {\tt question1-part1.cpp}: This file contains the instructions corresponding to first question of part~1. {\bf Do not modify this file}\footnote{Except if you are explicitly told to do so.}. Read it, comments will tell you what to do, where to write code, etc. If you do things right, compiling {\tt question1-part1.cpp} should succeed and it will output what is expected.
+  \item {\tt question2-part1.cpp}: Next question...
+  \item {\tt question3-part1.cpp}: Next question...
+  \item {\tt ...}
+\end{itemize}
+
+Once you have implemented what is required by, let us say, {\tt question3-part2.cpp}, you have to compile the {\tt question3-part2.cpp} and run the resulting program. {\bf Do not invoke g++ directly}, we provide you with this simplified command.
+\begin{verbatim}make question3-part2
+\end{verbatim}
+
+You will not have to type everything if you use the completion key (the {\tt TAB} key).
+
+In case of compiling errors, output that not fit the requirements, you will have to modify your code (in {\tt part2.hpp} or {\tt part2.cpp} in this example), and retry the command until everything succeeds. 
+
+\section{Start the test \label{sec:starting}}
+
+Now, type
+
+\begin{verbatim}make
+\end{verbatim}
+
+to display all the questions (lines like {\tt make question-X-part-Y}). Edit the corresponding {\tt c++} file with one of the available code editors. This file is {\tt question-X-part-Y.cpp} if you have typed {\tt make question-X-part-Y}. Reading the comments tells you what to do (don't modify that file if you are not explicitly asked to). Compile and test that question by typing the corresponding 
+
+\begin{verbatim}make questionX-partY
+\end{verbatim}
+
+command.
+
+\section{Warnings}
+
+The documentation is available on this machine, you have no access to internet, and no extra electronic devices are allowed.
+
+{\bf DO NOT} access collections elements with the {\tt []} operator, like in {\tt  tab[4]}, since this is not efficient within loops.
+
+Each function you will have to implement {\bf is short} (less than 10 lines). Do not get lost in obfuscated code !
+
+Be sure to save the files you have modified before the end of the test. Do not create new files, anwsering consists in modifying the given files.
+
+Use {\tt make oops} in case of accidental file deletions... but the best is to avoid it.
+
+
+
+\end{document}

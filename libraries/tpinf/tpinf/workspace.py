@@ -109,3 +109,7 @@ def create_makefile(dirname):
                 makefile.write('\n')
 
 
+
+def create_instructions():
+    with open('instructions.tex', 'w') as tex :
+        
