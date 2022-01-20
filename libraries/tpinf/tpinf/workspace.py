@@ -84,3 +84,22 @@ def create_makefile():
         makefile.write('\t@echo\n')
         makefile.write('\t@./test\n')
         makefile.write('\n')
+        makefile.write('\n')
+        makefile.write('\n')
+        makefile.write('\n')
+        for part, questions in toc.items():
+            for question in questions:
+                target = 'question{}-part{}'.format(question, part)
+                files = []
+                if part in part_c:
+                    files.append('part{}.cpp'.format(part))
+                files.append(target + '.cpp')
+                files = ' '.join(files)
+                makefile.write('.PHONY: {}\n'.format(target))
+                makefile.write('{}:\n'.format(target))
+                makefile.write('\t@make --quiet stamp PART={} QUESTION={}\n'.format(part, question))
+                makefile.write('\tg++ -o test $(CFLAGS) {}\n'.format(files))
+                makefile.write('\t@make --quiet run\n')
+                makefile.write('\n')
+
+

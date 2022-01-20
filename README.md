@@ -91,18 +91,25 @@ pragma can be introduced. These are tags for the corrector. It looks like
 ```
 
 The question tag *mustn't have blank separators*, and the mark is a
-number. Indeed, when the corrector annoted student code, s/he will add
-these pragmas in the student code to evaluate the question, so that
-collection of marks can be automated. Here, in the "answer" section,
-writing only
+number. Indeed, when the corrector annotes student code, s/he will
+adds these pragmas in the student code to give a mark to the question,
+so that collection of marks can be automated. Here, in the "answer"
+section, writing only
 
 ```
 #pragma tpinfQ <question-tag>
 ```
 
-without any mark tells the corrector which tag is required for that
-specific element of answer.
+without any mark is a hint for the corrector telling which question
+tag is required for that specific element of the answer.
 
+
+### Building the test archive
+
+
+
+
+### Correction
 
 
 
