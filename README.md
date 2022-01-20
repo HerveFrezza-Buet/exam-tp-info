@@ -86,7 +86,8 @@ It invokes `tpinf-make-*` filtering scripts provided by tpinf.
 Within the `tpinf_open_answer... tpinf_close_answer` sections, extra
 pragma can be introduced. These are tags for the corrector. It looks like
 
-```#pragma tpinfQ <question-tag> <mark>
+```
+#pragma tpinfQ <question-tag> <mark>
 ```
 
 The question tag *mustn't have blank separators*, and the mark is a
@@ -95,7 +96,8 @@ these pragmas in the student code to evaluate the question, so that
 collection of marks can be automated. Here, in the "answer" section,
 writing only
 
-```#pragma tpinfQ <question-tag>
+```
+#pragma tpinfQ <question-tag>
 ```
 
 without any mark tells the corrector which tag is required for that
