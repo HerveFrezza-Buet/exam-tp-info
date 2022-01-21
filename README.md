@@ -128,7 +128,8 @@ tpinf-make-exam-archive.py
 ```
 
 It creates a the `exam-subject.tar.gz` archive you will have to
-extract at student machines.
+extract at the student machines. Of course, the exam version of your
+C++ files are added into the archive.
 
 
 ### Correction
