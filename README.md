@@ -81,7 +81,7 @@ find . -maxdepth 1 \( -name '*.hpp' -o -name '*.cpp' \) -exec tpinf-make-testabl
 find . -maxdepth 1 \( -name '*.hpp' -o -name '*.cpp' \) -exec tpinf-make-subject-source.py \{} exam \;
 ```
 
-It invokes `tpinf-make-*` filtering scripts provided by tpinf.
+The above commands invoke `tpinf-make-*` filtering scripts provided by tpinf.
 
 Within the `tpinf_open_answer... tpinf_close_answer` sections, extra
 pragma can be introduced. These are tags for the corrector. It looks like
@@ -106,7 +106,15 @@ tag is required for that specific element of the answer.
 
 ### Building the test archive
 
+The test archive is the archive you have to extract on the student
+working station. You only have to execute the following commands.
 
+```
+cd <subject>
+tpinf-make-exam-archive.py
+```
+
+It creates a `exam-subject.tar.gz` archive.
 
 
 ### Correction
