@@ -10,16 +10,16 @@ This provides tools for setting up a programming test based on a labwork.
 
 Clone this project somewhere
 
-```cd <somewhere>
+```cd SOMEWHERE
 git clone https://github.com/HerveFrezza-Buet/exam-tp-info.git
 ```
 
-Let us call `<package-path>` the path to the directory you have just
-cloned (i.e. `<somewhere>/exam-tp-info`).
+Let us call `PACKAGE_PATH` the path to the directory you have just
+cloned (i.e. `SOMEWHERE/exam-tp-info`).
 
 We have to install some python tools
 
-```cd <package-path>/libraries/tpinf
+```cd PACKAGE_PATH/libraries/tpinf
 python3 setup.py install --user
 ```
 
@@ -27,7 +27,7 @@ python3 setup.py install --user
 
 ### Principle
 
-Define a directory (called <subject> here) containing your
+Define a directory (called SUBJECT here) containing your
 subject. This has to contain C++ files. Questions are gathered into
 parts. Indeed, a question is "make this code compile fine and execute
 right".
@@ -74,7 +74,7 @@ The code here you want to add to the students...
 
 Once instrumentation is done, you can generate both versions of your
 files. Let us consider directory `testing` and `exam` for putting these
-two versions. From <subject>, you can type
+two versions. From SUBJECT, you can type
 
 ```mkdir testing exam
 find . -maxdepth 1 \( -name '*.hpp' -o -name '*.cpp' \) -exec tpinf-make-testable-source.py \{} testing \;
@@ -87,7 +87,7 @@ Within the `tpinf_open_answer... tpinf_close_answer` sections, extra
 pragma can be introduced. These are tags for the corrector. It looks like
 
 ```
-#pragma tpinf_Q <question-tag> <mark>
+#pragma tpinf_Q QUESTION_TAG MARK
 ```
 
 The question tag *mustn't have blank separators*, and the mark is a
@@ -97,7 +97,7 @@ so that collection of marks can be automated. Here, in the "answer"
 section, writing only
 
 ```
-#pragma tpinf_Q <question-tag>
+#pragma tpinf_Q QUESTION_TAG
 ```
 
 without any mark is a hint for the corrector telling which question
@@ -110,7 +110,7 @@ The test archive is the archive you have to extract on the student
 working station. You only have to execute the following commands.
 
 ```
-cd <subject>
+cd SUBJECT
 tpinf-make-exam-archive.py
 ```
 
@@ -120,42 +120,42 @@ extract at student machines.
 
 ### Correction
 
-There is no specific tool for the correction. Let us call <copies> the
+There is no specific tool for the correction. Let us call COPIES the
 directory containing a tree of subdirectories where the students'
 directory are organized. In this git, you are given a `fake-copies`
-directory that can be used as <copies> for testing.
+directory that can be used as COPIES for testing.
 
-First, generate the solution is some <solution> directory.
+First, generate the solution is some SOLUTION directory.
 
 ```
-mkdir <solution>
-cd <subject>
-find . -maxdepth 1 \( -name '*.hpp' -o -name '*.cpp' \) -exec tpinf-make-testable-source.py \{} <solution> \;
+mkdir SOLUTION
+cd SUBJECT
+find . -maxdepth 1 \( -name '*.hpp' -o -name '*.cpp' \) -exec tpinf-make-testable-source.py \{} SOLUTION \;
 ```
 
 If the writer of the subject did the things right, you should have
-`#pragma tpint_Q <tag>` lines in the files placed in <solution>.
+`#pragma tpint_Q QUESTION_TAG` lines in the files placed in SOLUTION.
 
 Make a list of the files you have to correct in some text file. For example
 
 ```
-find <copies> -name 'part1.c=hpp' > MY_LIST.txt
+find COPIES -name 'part1.c=hpp' > my_list.txt
 ```
 
-Then, you can loop on the `MY_LIST.txt` content in order to launch an editor.
+Then, you can loop on the `my_list.txt` content in order to launch an editor.
 
 ```
-for f in $(cat MY_LIST.txt); do echo opening $f; gedit $f; done
+for f in $(cat my_list.txt); do echo opening $f; gedit $f; done
 ```
 
 Correction consists in annotating the files with comments... and give
-a mark to the questions, i.e. add to the `#pragma tpint_Q <tag>` lines
-the mark (`#pragma tpint_Q <tag> <mark>`) it diserves.
+a mark to the questions, i.e. add to the `#pragma tpint_Q QUESTION_TAG` lines
+the mark (`#pragma tpint_Q QUESTION_TAG MARK`) it diserves.
 
 
 ### Make the exam report.
 
-In order to gather all the marks given so far in the <copies>
+In order to gather all the marks given so far in the COPIES
 directory, go into its parent directory, and type
 
 ```
