@@ -122,7 +122,7 @@ extract at student machines.
 
 There is no specific tool for the correction. Let us call COPIES the
 directory containing a tree of subdirectories where the students'
-directory are organized. In this git, you are given a `fake-copies`
+directory are organized. In PACKAGE_PATH, you are given a `PACKAGE_PATH/fake-copies`
 directory that can be used as COPIES for testing.
 
 First, generate the solution is some SOLUTION directory.
