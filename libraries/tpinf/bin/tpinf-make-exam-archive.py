@@ -11,6 +11,12 @@ os.system('cd {}; git init; git add *; git commit -am "initial files"'.format(di
 os.system('latexmk --pdf instructions.tex')
 os.system('mv instructions.pdf {}/.instructions.pdf'.format(dirname))
 os.system('rm instructions.*')
-
+os.system('tar zcvf {}.tar.gz {}; rm -rf {}'.format(dirname, dirname, dirname))
+print()
+print()
+print()
+print()
+print('Archive {}.tar.gz generated.'.format(dirname))
+print()
 
 
