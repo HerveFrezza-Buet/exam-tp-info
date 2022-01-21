@@ -63,8 +63,11 @@ We provide `#prama` stuff to instrument your code for that purpose.
 
 ```
 #pragma tpinf_open_answer
-The code here you want to add to the students...
-... i.e, the answer of the question
+
+The code here you want to hide to the students, i.e, the answer of the
+question. Including this code makes your program compile fine and
+produce the expected result.
+
 #pragma tpinf_close_answer
 ```
 
@@ -73,8 +76,11 @@ that you do not want to include in your code when you test it.
 
 ```
 #pragma tpinf_open_only_in_subject
-The code here you want to add to the students...
-... i.e, the answer of the question
+
+The code here you want to add to the students version of the file. It
+can be incomplete or partial code. When you test your exam, this will
+be not include in your c++ files.
+
 #pragma tpinf_close_only_in_subject
 ```
 
