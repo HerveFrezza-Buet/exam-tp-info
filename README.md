@@ -167,6 +167,7 @@ directory, go into its parent directory, and type
 tpinf-make-report.py fake-copies/
 ```
 
+And you get a `.xls` file.
 
 
 
