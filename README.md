@@ -79,13 +79,13 @@ that you do not want to include in your code when you test it.
 
 The code here you want to add to the students version of the file. It
 can be incomplete or partial code. When you test your exam, this will
-be not include in your c++ files.
+not be included in your c++ files.
 
 #pragma tpinf_close_only_in_subject
 ```
 
 Once instrumentation is done, you can generate both versions of your
-files. Let us consider directory `TESTING` and `EXAM` for putting these
+files. Let us consider directories `TESTING` and `EXAM` for putting these
 two versions. From SUBJECT, you can type
 
 ```
