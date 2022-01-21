@@ -136,8 +136,9 @@ C++ files are added into the archive.
 
 There is no specific tool for the correction. Let us call COPIES the
 directory containing a tree of subdirectories where the students'
-directory are organized. In PACKAGE_PATH, you are given a `PACKAGE_PATH/fake-copies`
-directory that can be used as COPIES for testing.
+directory are organized (In PACKAGE_PATH, you are given a
+`PACKAGE_PATH/fake-copies` directory that can be used as COPIES for
+playing with the following instructions).
 
 First, generate the solution is some SOLUTION directory.
 
@@ -153,7 +154,7 @@ If the writer of the subject did the things right, you should have
 Make a list of the files you have to correct in some text file. For example
 
 ```
-find COPIES -name 'part1.c=hpp' > my_list.txt
+find COPIES -name 'part1.hpp' > my_list.txt
 ```
 
 Then, you can loop on the `my_list.txt` content in order to launch an editor.
