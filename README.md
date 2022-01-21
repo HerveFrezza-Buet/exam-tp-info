@@ -46,8 +46,10 @@ possibilities).
 For a question to be compiled correctly, the student may need to edit
 related files. In our approach, and this is what parts are, for a
 given `$P$`, all questions `question$Q$-part$P$.cpp` are related to a
-`part$P$.hpp` and an eventual `part$P$.cpp` file. The student fill these
-one or two files as they make the `question$Q$-part$P$.cpp` work.
+`part$P$.hpp` and an eventual `part$P$.cpp` file. The students fill
+progressively the `part$P$.*` files as they answer the
+`question$Q$-part$P$.cpp` question, making them work one after the
+others.
 
 ### Instrumentation
 
