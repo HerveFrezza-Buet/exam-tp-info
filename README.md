@@ -114,10 +114,53 @@ cd <subject>
 tpinf-make-exam-archive.py
 ```
 
-It creates a `exam-subject.tar.gz` archive.
+It creates a the `exam-subject.tar.gz` archive you will have to
+extract at student machines.
 
 
 ### Correction
+
+There is no specific tool for the correction. Let us call <copies> the
+directory containing a tree of subdirectories where the students'
+directory are organized. In this git, you are given a `fake-copies`
+directory that can be used as <copies> for testing.
+
+First, generate the solution is some <solution> directory.
+
+```
+mkdir <solution>
+cd <subject>
+find . -maxdepth 1 \( -name '*.hpp' -o -name '*.cpp' \) -exec tpinf-make-testable-source.py \{} <solution> \;
+```
+
+If the writer of the subject did the things right, you should have
+`#pragma tpint_Q <tag>` lines in the files placed in <solution>.
+
+Make a list of the files you have to correct in some text file. For example
+
+```
+find <copies> -name 'part1.c=hpp' > MY_LIST.txt
+```
+
+Then, you can loop on the `MY_LIST.txt` content in order to launch an editor.
+
+```
+for f in $(cat MY_LIST.txt); do echo opening $f; gedit $f; done
+```
+
+Correction consists in annotating the files with comments... and give
+a mark to the questions, i.e. add to the `#pragma tpint_Q <tag>` lines
+the mark (`#pragma tpint_Q <tag> <mark>`) it diserves.
+
+
+### Make the exam report.
+
+In order to gather all the marks given so far in the <copies>
+directory, go into its parent directory, and type
+
+```
+tpinf-make-report.py fake-copies/
+```
 
 
 
