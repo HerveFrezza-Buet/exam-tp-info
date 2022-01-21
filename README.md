@@ -149,9 +149,12 @@ find . -maxdepth 1 \( -name '*.hpp' -o -name '*.cpp' \) -exec tpinf-make-testabl
 ```
 
 If the writer of the subject did the things right, you should have
-`#pragma tpint_Q QUESTION_TAG` lines in the files placed in SOLUTION.
+`#pragma tpint_Q QUESTION_TAG` lines in the files placed in
+SOLUTION. The files there are very usefull for the corrector, who can
+refer to them.
 
-Make a list of the files you have to correct in some text file. For example
+The smartest way is certainly to make a list of the files you have to
+correct in some text file. For example
 
 ```
 find COPIES -name 'part1.hpp' > my_list.txt
