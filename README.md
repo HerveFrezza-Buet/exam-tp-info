@@ -87,7 +87,7 @@ Within the `tpinf_open_answer... tpinf_close_answer` sections, extra
 pragma can be introduced. These are tags for the corrector. It looks like
 
 ```
-#pragma tpinfQ <question-tag> <mark>
+#pragma tpinf_Q <question-tag> <mark>
 ```
 
 The question tag *mustn't have blank separators*, and the mark is a
@@ -97,7 +97,7 @@ so that collection of marks can be automated. Here, in the "answer"
 section, writing only
 
 ```
-#pragma tpinfQ <question-tag>
+#pragma tpinf_Q <question-tag>
 ```
 
 without any mark is a hint for the corrector telling which question

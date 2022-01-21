@@ -1,5 +1,5 @@
 #pragma once
-#pragma tpinfQ once 3
+#pragma tpinf_Q once 4
 
-#pragma tpinfQ add-header 1
+#pragma tpinf_Q add-header 10
 int add(int a, int b);

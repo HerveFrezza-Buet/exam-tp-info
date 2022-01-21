@@ -1,2 +1,2 @@
 #include <iostream>
-#pragma tpinfQ iostream 5
+#pragma tpinf_Q iostream 8 
