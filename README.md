@@ -48,7 +48,7 @@ related files. In our approach, and this is what parts are, for a
 given `$P$`, all questions `question$Q$-part$P$.cpp` are related to a
 `part$P$.hpp` and an eventual `part$P$.cpp` file. The students fill
 progressively the `part$P$.*` files as they answer the
-`question$Q$-part$P$.cpp` question, making them work one after the
+`question$Q$-part$P$.cpp` questions, making them work one after the
 others.
 
 ### Instrumentation
