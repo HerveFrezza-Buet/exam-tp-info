@@ -4,13 +4,16 @@ This provides tools for setting up a programming test based on a labwork.
 
 ## Pre-installation
 
-```sudo apt install git makefile texlive-latex-base latexmk```
+```
+sudo apt install git makefile texlive-latex-base latexmk
+```
 
 ## Installation
 
 Clone this project somewhere
 
-```cd SOMEWHERE
+```
+cd SOMEWHERE
 git clone https://github.com/HerveFrezza-Buet/exam-tp-info.git
 ```
 
@@ -19,7 +22,8 @@ cloned (i.e. `SOMEWHERE/exam-tp-info`).
 
 We have to install some python tools
 
-```cd PACKAGE_PATH/libraries/tpinf
+```
+cd PACKAGE_PATH/libraries/tpinf
 python3 setup.py install --user
 ```
 
@@ -73,12 +77,13 @@ The code here you want to add to the students...
 ```
 
 Once instrumentation is done, you can generate both versions of your
-files. Let us consider directory `testing` and `exam` for putting these
+files. Let us consider directory `TESTING` and `EXAM` for putting these
 two versions. From SUBJECT, you can type
 
-```mkdir testing exam
-find . -maxdepth 1 \( -name '*.hpp' -o -name '*.cpp' \) -exec tpinf-make-testable-source.py \{} testing \;
-find . -maxdepth 1 \( -name '*.hpp' -o -name '*.cpp' \) -exec tpinf-make-subject-source.py \{} exam \;
+```
+mkdir TESTING EXAM
+find . -maxdepth 1 \( -name '*.hpp' -o -name '*.cpp' \) -exec tpinf-make-testable-source.py \{} TESTING \;
+find . -maxdepth 1 \( -name '*.hpp' -o -name '*.cpp' \) -exec tpinf-make-subject-source.py \{} EXAM \;
 ```
 
 The above commands invoke `tpinf-make-*` filtering scripts provided by tpinf.
