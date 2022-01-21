@@ -43,7 +43,7 @@ and part (3 and 2 here) must be a single char. Let us denote by
 single char, use letters A, B, C if you have more than 10
 possibilities).
 
-For a question to be compiled correctly, the student my need to edit
+For a question to be compiled correctly, the student may need to edit
 related files. In our approach, and this is what parts are, for a
 given `$P$`, all questions `question$Q$-part$P$.cpp` are related to a
 `part$P$.hpp` and an eventual `part$P$.cpp` file. The student fill these
@@ -96,7 +96,7 @@ pragma can be introduced. These are tags for the corrector. It looks like
 ```
 
 The question tag *mustn't have blank separators*, and the mark is a
-number. Indeed, when the corrector annotes student code, s/he will
+number. Indeed, when the corrector annotates student code, s/he will
 adds these pragmas in the student code to give a mark to the question,
 so that collection of marks can be automated. Here, in the "answer"
 section, writing only
@@ -155,7 +155,7 @@ for f in $(cat my_list.txt); do echo opening $f; gedit $f; done
 
 Correction consists in annotating the files with comments... and give
 a mark to the questions, i.e. add to the `#pragma tpint_Q QUESTION_TAG` lines
-the mark (`#pragma tpint_Q QUESTION_TAG MARK`) it diserves.
+the mark (`#pragma tpint_Q QUESTION_TAG MARK`) it deserves.
 
 
 ### Make the exam report.
