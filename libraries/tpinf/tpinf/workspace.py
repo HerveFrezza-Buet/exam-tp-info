@@ -267,4 +267,4 @@ def rewrite_as_part(source_file, dirname, part):
 
     with open(dest_file, 'w') as dest:
         for line in open(source_file):
-            dest.write(__rewrite_line(line, part) + '\n')
+            dest.write(__rewrite_line(line, part))
