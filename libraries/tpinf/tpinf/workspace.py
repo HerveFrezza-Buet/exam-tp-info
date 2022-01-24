@@ -1,4 +1,14 @@
 from pathlib import Path
+from . import correction
+
+class BadPartTag(Exception):
+    pass
+
+class NotCpp(Exception):
+    pass
+
+class BadQuestionFileName(Exception):
+    pass
 
 def create_makefile(dirname):
 
@@ -208,3 +218,53 @@ def create_instructions():
         latex.write("\n")
         latex.write("\n")
         latex.write("\\end{document}\n")
+        
+LICITE_PART_TAGS = [str(i) for i in range(1, 10)] + [chr(i+65) for i in range(26)]
+
+def __rewrite_filename(source_name, part):
+    partname = 'part{}'.format(part)
+    if source_name == 'part.cpp':
+        return partname + '.cpp'
+    elif source_name == 'part.hpp':
+        return partname + '.hpp'
+    elif len(source_name) < 13:
+        raise BadQuestionFileName
+    elif source_name[:8] != 'question':
+        raise BadQuestionFileName
+    elif source_name[9:] != '.cpp':
+        raise BadQuestionFileName
+    elif source_name[8] not in LICITE_PART_TAGS:
+        raise BadQuestionFileName
+    return 'question' + source_name[8] + '-part{}.cpp'.format(part)
+
+def __rewrite_line(line, part):
+    res = line.replace('part.hpp', 'part{}.hpp'.format(part))
+    res = res.replace('part.cpp', 'part{}.cpp'.format(part))
+    res = res.replace('PART', 'part{}'.format(part))
+    words = line.split()
+    if len(words) > 2:
+        if (words[0], words[1]) == ('#pragma', correction.PRAGMA_Q):
+            words[2] = '{}-'.format(part)+ words[2]
+            res = ' '.join(words)
+    return res
+    
+def rewrite_as_part(source_file, dirname, part):
+    if not isinstance(part, str):
+        raise BadPartTag
+    if len(part) != 1:
+        raise BadPartTag
+
+    if not isinstance(source_file, Path):
+        source_file = Path(source_file)
+        
+    if not isinstance(dirname, Path):
+        dirname = Path(dirname)
+
+    if source_file.suffix not in ['.cpp', '.hpp']:
+        raise NotCpp
+    
+    dest_file = dirname / __rewrite_filename(source_file.name, part)
+
+    with open(dest_file, 'w') as dest:
+        for line in open(source_file):
+            dest.write(__rewrite_line(line, part) + '\n')

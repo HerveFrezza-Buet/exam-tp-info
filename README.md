@@ -91,7 +91,7 @@ two versions. From SUBJECT, you can type
 ```
 mkdir TESTING EXAM
 find . -maxdepth 1 \( -name '*.hpp' -o -name '*.cpp' \) -exec tpinf-make-testable-source.py \{} TESTING \;
-find . -maxdepth 1 \( -name '*.hpp' -o -name '*.cpp' \) -exec tpinf-make-subject-source.py \{} EXAM \;
+find . -maxdepth 1 \( -name '*.hpp' -o -name '*.cpp' \) -exec tpinf-make-exam-source.py \{} EXAM \;
 ```
 
 The above commands invoke `tpinf-make-*` filtering scripts provided by tpinf.
@@ -130,6 +130,51 @@ tpinf-make-exam-archive.py
 It creates a the `exam-subject.tar.gz` archive you will have to
 extract at the student machines. Of course, the exam version of your
 C++ files are added into the archive.
+
+### Pick up in an exercises database
+
+You may build up your exams every year by picking questions from a
+database. Here, this strategy consists in having several directories,
+each one containing a single part and the assorted questions. So there
+are in such a directory: part.hpp, eventually part.cpp, and
+question$Q$.cpp files including the part.hpp file.
+
+The principle of exam generation is to build up an exam directory,
+where each of the single-part directory that is to be used in the exam
+is copied and re-written, since parts are associated with an actual
+number. So for one of them, if it corresponds to part3 in the final
+exam, you will have:
+
+- part.hpp --> part3.hpp
+- part.cpp --> part3.cpp (and the code #include "part.hpp" is re-written accordingly)
+- question$Q$.cpp --> question$Q$-part3.cpp (and the code #include "part.hpp" is re-written accordingly)
+
+Moreover, in all files, question tags are prefixed with "3-" (for part
+3), and every occurrence of PART is replaced by part3 (here).
+
+We provide you in directory `PACKAGE_PATH/fake-subject-database`
+several parts, ready to be included in a specific subject. Let us use
+`list` and `vector` parts as elements of this year exam. Go somewhere
+you want to generated your subject. We want the vector part to be the
+first part, and list part to be the second part.
+
+```
+cd where-i-gather-all-the exam-subjects
+mkdir 2020-2021-c++-exam-session1
+tpinf_make_subject 2020-2021-c++-exam-session1 PACKAGE_PATH/fake-subject-database/vectors PACKAGE_PATH/fake-subject-database/lists
+```
+
+And that's it, the directory 2020-2021-c++-exam-session1 can be used
+as the SUBJECT directory mentionned previously. For example, it the
+database contains subjects that have been already tested, you can
+generate an exam archive like this:
+
+```
+cd 2020-2021-c++-exam-session1
+tpinf-make-exam-archive.py
+```
+
+and you're done.
 
 
 ### Correction
