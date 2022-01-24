@@ -245,7 +245,7 @@ def __rewrite_line(line, part):
     if len(words) > 2:
         if (words[0], words[1]) == ('#pragma', correction.PRAGMA_Q):
             words[2] = '{}-'.format(part)+ words[2]
-            res = ' '.join(words)
+            res = ' '.join(words)+'\n'
     return res
     
 def rewrite_as_part(source_file, dirname, part):
