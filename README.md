@@ -161,7 +161,7 @@ first part, and list part to be the second part.
 ```
 cd where-i-gather-all-the exam-subjects
 mkdir 2020-2021-c++-exam-session1
-tpinf_make_subject.py 2020-2021-c++-exam-session1 PACKAGE_PATH/fake-subject-database/vectors PACKAGE_PATH/fake-subject-database/lists
+tpinf-make-subject.py 2020-2021-c++-exam-session1 PACKAGE_PATH/fake-subject-database/vectors PACKAGE_PATH/fake-subject-database/lists
 ```
 
 And that's it, the directory 2020-2021-c++-exam-session1 can be used

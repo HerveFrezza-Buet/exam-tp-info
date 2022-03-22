@@ -90,7 +90,7 @@ def create_makefile(dirname):
         makefile.write('sign:\n')
         makefile.write('\t@echo\n')
         makefile.write('\t@echo\n')
-        makefile.write('\t@read -p "enter your name (format : FIRST-NAME last-name): " identity; echo $$identity > .name.cfg\n')
+        makefile.write('\t@read -p "enter your name (format : LAST-NAME first-name, ex: EINSTEIN Albert): " identity; echo $$identity > .name.cfg\n')
         makefile.write('\t@echo\n')
         makefile.write('\n')
         makefile.write('\n')
