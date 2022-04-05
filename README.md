@@ -116,11 +116,24 @@ section, writing only
 without any mark is a hint for the corrector telling which question
 tag is required for that specific element of the answer.
 
+### Overview
+
+Once you have gathered all the code for a subject, you can overview
+the question you have defined.
+
+```
+cd SUBJECT
+tpinf-list-questions.py
+```
+
+This is usefull if you have built the SUBJECT content by picking several
+questions from a database (see further).
+
 
 ### Building the test archive
 
 The test archive is the archive you have to extract on the student
-working station. You only have to execute the following commands.
+working station. You only have to execute the following commands. 
 
 ```
 cd SUBJECT

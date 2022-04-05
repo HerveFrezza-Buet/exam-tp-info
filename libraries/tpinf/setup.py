@@ -8,6 +8,7 @@ setuptools.setup(
                'bin/tpinf-make-exam-source.py',
                'bin/tpinf-make-exam-archive.py',
                'bin/tpinf-make-subject.py',
-               'bin/tpinf-make-report.py'],
+               'bin/tpinf-make-report.py',
+               'bin/tpinf-list-questions.py'],
     packages = setuptools.find_packages(),
 )

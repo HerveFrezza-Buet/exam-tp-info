@@ -69,3 +69,29 @@ def remove_solution(file_in, out_dir):
                 
 def make_testable(file_in, out_dir):
     __remove_in_pragmas(file_in, out_dir, PRAMGA_OPEN_ONLY_IN_SUBJECT, PRAMGA_CLOSE_ONLY_IN_SUBJECT)
+
+def list_questions():
+    path = Path('.')
+    files = list(path.glob('*.hpp')) + list(path.glob('*.cpp'))
+    all_tags = []
+    res = {}
+    for filename in files:
+        for line in open(filename):
+            words = line.split()
+            if len(words) > 2 and words[0] == '#pragma' and words[1] == PRAGMA_Q:
+                if len(words) < 3:
+                    print(f'Error in file {filename} : pragma {PRAGMA_Q} with no tag.')
+                    raise ValueError
+                else:
+                    tag = words[2]
+                    if tag in all_tags:
+                        print(f'Error in file {filename} : the tag {tag} is already used.')
+                        raise ValueError
+                    all_tags.append(tag)
+                    if not (filename in res):
+                        res[filename] = [tag]
+                    else:
+                        res[filename].append(tag)
+    return len(all_tags), res
+            
+                        
