@@ -10,6 +10,10 @@ class NotCpp(Exception):
 class BadQuestionFileName(Exception):
     pass
 
+class NotQuestionFileName(Exception):
+    pass
+
+
 def create_makefile(dirname):
 
     subject_dir = Path('.') / dirname
@@ -227,15 +231,21 @@ def __rewrite_filename(source_name, part):
         return partname + '.cpp'
     elif source_name == 'part.hpp':
         return partname + '.hpp'
-    elif len(source_name) < 13:
-        raise BadQuestionFileName
-    elif source_name[:8] != 'question':
-        raise BadQuestionFileName
-    elif source_name[9:] != '.cpp':
-        raise BadQuestionFileName
-    elif source_name[8] not in LICITE_PART_TAGS:
-        raise BadQuestionFileName
-    return 'question' + source_name[8] + '-part{}.cpp'.format(part)
+    try: # Is it a question file ?
+        if len(source_name) < 13:
+            raise NotQuestionFileName
+        elif source_name[:8] != 'question':
+            raise NotQuestionFileName
+        elif source_name[9:] != '.cpp':
+            raise BadQuestionFileName
+        elif source_name[8] not in LICITE_PART_TAGS:
+            raise BadQuestionFileName
+        return 'question' + source_name[8] + '-part{}.cpp'.format(part)
+    except NotQuestionFileName:
+        return source_name
+    except BadQuestionFileName:
+        print(f'The file "{source_name}" has an ill-formed question name.')
+        raise
 
 def __rewrite_line(line, part):
     res = line.replace('part.hpp', 'part{}.hpp'.format(part))
