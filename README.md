@@ -211,17 +211,22 @@ If the writer of the subject did the things right, you should have
 SOLUTION. The files there are very usefull for the corrector, who can
 refer to them.
 
-The smartest way is certainly to make a list of the files you have to
-correct in some text file. For example
+The easiest way is certainly to make a list of the files you have to
+correct in some text file. tpinf provide tools for that.
+
+First make the list of all the files you have to correct. Last argument is the part number (or several once), since we build the list for the correction of a specific part (or set of parts). Some correctors can thus be affected to one part, and make the file liste for it only (part 1 in the following command).
 
 ```
-find COPIES -name 'part1.hpp' > my_list.txt
-```
-
-Then, you can loop on the `my_list.txt` content in order to launch an editor.
+tpinf-list-copies.py COPIES my_list.txt 1
 
 ```
-for f in $(cat my_list.txt); do echo opening $f; gedit $f; done
+
+Try to edit my_list.txt, each line correponds to a bunch of files that will be opened together. As suggested, you can comment the lines for the copies you have already corrected.
+
+Okay, let us read the copies. You can loop on the non-commented lines `my_list.txt` content in order to launch an editor (emacs here)
+
+```
+tpinf-read-copies.py my_list.txt emacs
 ```
 
 Correction consists in annotating the files with comments... and give
