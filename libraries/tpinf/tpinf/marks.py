@@ -60,8 +60,13 @@ def collect(path, all_tags, all_students, student = None):
 
     files = list(path.glob('*.hpp')) + list(path.glob('*.cpp')) + list(path.glob('*.hh')) + list(path.glob('*.cc')) + list(path.glob('*.h')) + list(path.glob('*.c'))
     if student == None and len(files) > 0:
-        print('Orphan c++ files found')
+        print()
+        print()
+        print('Orphan c++ files found (i.e. c++ files not related to a student)')
+        print('These are the following ones')
         print([str(f) for f in files])
+        print()
+        print()
         raise OrphanCppFiles
         
     for f in files:
