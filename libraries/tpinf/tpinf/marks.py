@@ -29,7 +29,11 @@ class Report:
         question_tag, mark = words[2], float(words[3])
                 
         if question_tag in self.marks:
+            print()
+            print()
             print('For the student in {} : Found tag {} twice.'.format(self.path, question_tag))
+            print()
+            print()
             raise QuestionCorrectedTwice
 
         self.all_tags.add(question_tag)
