@@ -211,7 +211,7 @@ def create_instructions():
         latex.write("\n")
         latex.write("The documentation is available on this machine, you have no access to internet, and no extra electronic devices are allowed.\n")
         latex.write("\n")
-        latex.write("{\\bf DO NOT} access collections elements with the {\\tt []} operator, like in {\\tt  tab[4]}, since this is not efficient within loops.\n")
+        latex.write("{\\bf When iterators are more efficient, do not} access collections elements with the {\\tt []} operator, like in {\\tt  tab[4]}.\n")
         latex.write("\n")
         latex.write("Each function you will have to implement {\\bf is short} (less than 10 lines). Do not get lost in obfuscated code !\n")
         latex.write("\n")
