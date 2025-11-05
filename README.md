@@ -24,7 +24,7 @@ We have to install some python tools
 
 ```
 cd PACKAGE_PATH/libraries/tpinf
-python3 setup.py install --user
+pip install .
 ```
 
 ## Usage
@@ -90,8 +90,8 @@ two versions. From SUBJECT, you can type
 
 ```
 mkdir TESTING EXAM
-find . -maxdepth 1 \( -name '*.hpp' -o -name '*.cpp' \) -exec tpinf-make-testable-source.py \{} TESTING \;
-find . -maxdepth 1 \( -name '*.hpp' -o -name '*.cpp' \) -exec tpinf-make-exam-source.py \{} EXAM \;
+find . -maxdepth 1 \( -name '*.hpp' -o -name '*.cpp' \) -exec tpinf-make-testable-source \{} TESTING \;
+find . -maxdepth 1 \( -name '*.hpp' -o -name '*.cpp' \) -exec tpinf-make-exam-source \{} EXAM \;
 ```
 
 The above commands invoke `tpinf-make-*` filtering scripts provided by tpinf.
@@ -123,7 +123,7 @@ the question you have defined.
 
 ```
 cd SUBJECT
-tpinf-list-questions.py
+tpinf-list-questions
 ```
 
 This is usefull if you have built the SUBJECT content by picking several
@@ -137,7 +137,7 @@ working station. You only have to execute the following commands.
 
 ```
 cd SUBJECT
-tpinf-make-exam-archive.py
+tpinf-make-exam-archive
 ```
 
 It creates a the `exam-subject.tar.gz` archive you will have to
@@ -174,7 +174,7 @@ first part, and list part to be the second part.
 ```
 cd where-i-gather-all-the exam-subjects
 mkdir 2020-2021-c++-exam-session1
-tpinf-make-subject.py 2020-2021-c++-exam-session1 PACKAGE_PATH/fake-subject-database/vectors PACKAGE_PATH/fake-subject-database/lists
+tpinf-make-subject 2020-2021-c++-exam-session1 PACKAGE_PATH/fake-subject-database/vectors PACKAGE_PATH/fake-subject-database/lists
 ```
 
 And that's it, the directory 2020-2021-c++-exam-session1 can be used
@@ -184,7 +184,7 @@ generate an exam archive like this:
 
 ```
 cd 2020-2021-c++-exam-session1
-tpinf-make-exam-archive.py
+tpinf-make-exam-archive
 ```
 
 and you're done.
@@ -203,7 +203,7 @@ First, generate the solution is some SOLUTION directory.
 ```
 mkdir SOLUTION
 cd SUBJECT
-find . -maxdepth 1 \( -name '*.hpp' -o -name '*.cpp' \) -exec tpinf-make-testable-source.py \{} SOLUTION \;
+find . -maxdepth 1 \( -name '*.hpp' -o -name '*.cpp' \) -exec tpinf-make-testable-source \{} SOLUTION \;
 ```
 
 If the writer of the subject did the things right, you should have
@@ -217,7 +217,7 @@ correct in some text file. tpinf provide tools for that.
 First make the list of all the files you have to correct. Last argument is the part number (or several once), since we build the list for the correction of a specific part (or set of parts). Some correctors can thus be affected to one part, and make the file liste for it only (part 1 in the following command).
 
 ```
-tpinf-list-copies.py COPIES my_list.txt 1
+tpinf-list-copies COPIES my_list.txt 1
 
 ```
 
@@ -226,7 +226,7 @@ Try to edit my_list.txt, each line correponds to a bunch of files that will be o
 Okay, let us read the copies. You can loop on the non-commented lines `my_list.txt` content in order to launch an editor (emacs here)
 
 ```
-tpinf-read-copies.py my_list.txt emacs
+tpinf-read-copies my_list.txt emacs
 ```
 
 Correction consists in annotating the files with comments... and give
@@ -240,7 +240,7 @@ In order to gather all the marks given so far in the COPIES
 directory, go into its parent directory, and type
 
 ```
-tpinf-make-report.py fake-copies/
+tpinf-make-report fake-copies/
 ```
 
 And you get a `.xls` file.
