@@ -5,7 +5,7 @@ dependencies = ['numpy', 'matplotlib']
 
 [project.scripts]
 tpinf-read-copies = "tpinf.scripts.tpinf_read_copies:main"
-tpinf-make-testable-source = "tpinf.scripts.tpinf_make_testable_sources:main"
+tpinf-make-testable-source = "tpinf.scripts.tpinf_make_testable_source:main"
 tpinf-make-subject = "tpinf.scripts.tpinf_make_subject:main"
 tpinf-make-report = "tpinf.scripts.tpinf_make_report:main"
 tpinf-make-exam-source = "tpinf.scripts.tpinf_make_exam_source:main"
