@@ -157,7 +157,7 @@ def create_instructions():
         latex.write("\n")
         latex.write("\\section{Getting started}\n")
         latex.write("\n")
-        latex.write("We consider in the followwing that you have opened a terminal, and that you are placed in the directory where the exam materials lies.\n")
+        latex.write("We consider in the following that you have opened a terminal and that you are placed in the directory where the exam materials lie.\n")
         latex.write("\n")
         latex.write("In that terminal, typing only\n")
         latex.write("\\begin{verbatim}make\n")
