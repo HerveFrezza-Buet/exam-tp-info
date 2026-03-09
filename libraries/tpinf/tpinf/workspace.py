@@ -98,7 +98,7 @@ def create_makefile(dirname):
         makefile.write('\t@echo\n')
         makefile.write('\n')
         makefile.write('\n')
-        makefile.write('CFLAGS = -Wall -pedantic -std=c++17\n')
+        makefile.write('CFLAGS = -Wall -pedantic -std=c++20\n')
         makefile.write('\n')
         makefile.write('instructions:\n')
         makefile.write('\t@evince .instructions.pdf &\n')
