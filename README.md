@@ -13,7 +13,7 @@ sudo apt install git make texlive-latex-base latexmk
 Directly
 
 ```
-pip install git+https://github.com/HerveFrezza-Buet/tpinf#subdirectory=libraries/tpinf
+pip install git+https://github.com/HerveFrezza-Buet/exam-tp-info#subdirectory=libraries/tpinf
 ```
 
 Or, otherwise, clone this project somewhere
